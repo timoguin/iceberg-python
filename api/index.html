@@ -1,0 +1,3231 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://py.iceberg.apache.org/api/">
+      
+      
+        <link rel="prev" href="../cli/">
+      
+      
+        <link rel="next" href="../contributing/">
+      
+      
+      <link rel="icon" href="../assets/images/iceberg-logo-icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>API - PyIceberg</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PyIceberg" class="md-header__button md-logo" aria-label="PyIceberg" data-md-component="logo">
+      
+  <img src="../assets/images/iceberg-logo-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyIceberg
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/apache/iceberg-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    apache/iceberg-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Getting started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration/" class="md-tabs__link">
+        
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cli/" class="md-tabs__link">
+        
+  
+    
+  
+  CLI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributing/" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../community/" class="md-tabs__link">
+        
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../verify-release/" class="md-tabs__link">
+          
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/pyiceberg/" class="md-tabs__link">
+          
+  
+  Code Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PyIceberg" class="md-nav__button md-logo" aria-label="PyIceberg" data-md-component="logo">
+      
+  <img src="../assets/images/iceberg-logo-icon.png" alt="logo">
+
+    </a>
+    PyIceberg
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/apache/iceberg-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    apache/iceberg-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-a-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load a table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load a table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalog-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalog table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete column
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query the data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-arrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache Arrow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pandas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duckdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      DuckDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ray" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ray
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daft
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Releases
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Releases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verify-release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verify a release
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to release
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Code Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    pyiceberg
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            pyiceberg
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/avro/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    avro
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_1" id="__nav_8_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            avro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/avro/codecs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    codecs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_1_1" id="__nav_8_1_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_8_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            codecs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/codecs/bzip2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bzip2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/codecs/codec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    codec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/codecs/deflate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deflate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/codecs/snappy_codec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    snappy_codec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/codecs/zstandard_codec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zstandard_codec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/decoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    decoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/encoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    encoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    file
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    reader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/resolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    resolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/avro/writer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    writer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/catalog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    catalog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_2" id="__nav_8_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/dynamodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dynamodb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/glue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    glue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/hive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/noop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    noop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/catalog/sql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sql
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/cli/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    cli
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_3" id="__nav_8_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            cli
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/cli/console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/cli/output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/conversions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    conversions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/expressions/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    expressions
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_6" id="__nav_8_1_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            expressions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/expressions/literals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    literals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/expressions/parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/expressions/visitors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    visitors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/io/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    io
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_7" id="__nav_8_1_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            io
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/io/fsspec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fsspec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/io/pyarrow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pyarrow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/manifest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    manifest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/partitioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/serializers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    serializers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/table/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    table
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_12" id="__nav_8_1_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_12">
+            <span class="md-nav__icon md-icon"></span>
+            table
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/table/metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/table/name_mapping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    name_mapping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/table/refs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    refs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/table/snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    snapshots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/table/sorting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/transforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    transforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/typedef/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    typedef
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_16" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/pyiceberg/utils/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    utils
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1_16" id="__nav_8_1_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_16">
+            <span class="md-nav__icon md-icon"></span>
+            utils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/bin_packing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bin_packing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/concurrent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    concurrent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/datetime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    datetime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/decimal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    decimal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/deprecated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deprecated
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/lazydict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    lazydict
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/parsing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parsing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/schema_conversion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    schema_conversion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/singleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    singleton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pyiceberg/utils/truncate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    truncate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-a-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load a table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load a table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalog-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalog table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete column
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query the data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-arrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache Arrow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pandas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duckdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      DuckDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ray" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ray
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daft
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!--
+  - Licensed to the Apache Software Foundation (ASF) under one
+  - or more contributor license agreements.  See the NOTICE file
+  - distributed with this work for additional information
+  - regarding copyright ownership.  The ASF licenses this file
+  - to you under the Apache License, Version 2.0 (the
+  - "License"); you may not use this file except in compliance
+  - with the License.  You may obtain a copy of the License at
+  -
+  -   http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing,
+  - software distributed under the License is distributed on an
+  - "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  - KIND, either express or implied.  See the License for the
+  - specific language governing permissions and limitations
+  - under the License.
+  -->
+
+<h1 id="python-api">Python API</h1>
+<p>PyIceberg is based around catalogs to load tables. First step is to instantiate a catalog that loads tables. Let's use the following configuration to define a catalog called <code>prod</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">catalog</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">prod</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://rest-catalog/ws/</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">credential</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t-1234:secret</span>
+</code></pre></div>
+<p>Note that multiple catalogs can be defined in the same <code>.pyiceberg.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">catalog</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">hive</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thrift://127.0.0.1:9083</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">s3.endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:9000</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">s3.access-key-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">s3.secret-access-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">rest</span><span class="p">:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://rest-server:8181/</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">warehouse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-warehouse</span>
+</code></pre></div>
+<p>and loaded in python by calling <code>load_catalog(name="hive")</code> and <code>load_catalog(name="rest")</code>.</p>
+<p>This information must be placed inside a file called <code>.pyiceberg.yaml</code> located either in the <code>$HOME</code> or <code>%USERPROFILE%</code> directory (depending on whether the operating system is Unix-based or Windows-based, respectively) or in the <code>$PYICEBERG_HOME</code> directory (if the corresponding environment variable is set).</p>
+<p>For more details on possible configurations refer to the <a href="https://py.iceberg.apache.org/configuration/">specific page</a>.</p>
+<p>Then load the <code>prod</code> catalog:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.catalog</span> <span class="kn">import</span> <span class="n">load_catalog</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">catalog</span> <span class="o">=</span> <span class="n">load_catalog</span><span class="p">(</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">&quot;docs&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="o">**</span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8181&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="s2">&quot;s3.endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:9000&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="s2">&quot;py-io-impl&quot;</span><span class="p">:</span> <span class="s2">&quot;pyiceberg.io.pyarrow.PyArrowFileIO&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="s2">&quot;s3.access-key-id&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="s2">&quot;s3.secret-access-key&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">)</span>
+</code></pre></div>
+<p>Let's create a namespace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">catalog</span><span class="o">.</span><span class="n">create_namespace</span><span class="p">(</span><span class="s2">&quot;docs_example&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>And then list them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">ns</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list_namespaces</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">assert</span> <span class="n">ns</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;docs_example&quot;</span><span class="p">,)]</span>
+</code></pre></div>
+<p>And then list tables in the namespace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">catalog</span><span class="o">.</span><span class="n">list_tables</span><span class="p">(</span><span class="s2">&quot;docs_example&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="create-a-table">Create a table</h2>
+<p>To create a table from a catalog:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.schema</span> <span class="kn">import</span> <span class="n">Schema</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">pyiceberg.types</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">TimestampType</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">FloatType</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">DoubleType</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">StringType</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">NestedField</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">StructType</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="n">field_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">TimestampType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="n">field_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;symbol&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">StringType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="n">field_id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bid&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">FloatType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="n">field_id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ask&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="n">NestedField</span><span class="p">(</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        <span class="n">field_id</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;details&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>        <span class="n">field_type</span><span class="o">=</span><span class="n">StructType</span><span class="p">(</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>            <span class="n">NestedField</span><span class="p">(</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>                <span class="n">field_id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;created_by&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">StringType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>            <span class="p">),</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>        <span class="p">),</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    <span class="p">),</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="p">)</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="kn">from</span> <span class="nn">pyiceberg.partitioning</span> <span class="kn">import</span> <span class="n">PartitionSpec</span><span class="p">,</span> <span class="n">PartitionField</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="kn">from</span> <span class="nn">pyiceberg.transforms</span> <span class="kn">import</span> <span class="n">DayTransform</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="n">partition_spec</span> <span class="o">=</span> <span class="n">PartitionSpec</span><span class="p">(</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    <span class="n">PartitionField</span><span class="p">(</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>        <span class="n">source_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">field_id</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">DayTransform</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;datetime_day&quot;</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>    <span class="p">)</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="p">)</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="kn">from</span> <span class="nn">pyiceberg.table.sorting</span> <span class="kn">import</span> <span class="n">SortOrder</span><span class="p">,</span> <span class="n">SortField</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="kn">from</span> <span class="nn">pyiceberg.transforms</span> <span class="kn">import</span> <span class="n">IdentityTransform</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="c1"># Sort on the symbol</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="n">sort_order</span> <span class="o">=</span> <span class="n">SortOrder</span><span class="p">(</span><span class="n">SortField</span><span class="p">(</span><span class="n">source_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">IdentityTransform</span><span class="p">()))</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="n">catalog</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    <span class="n">identifier</span><span class="o">=</span><span class="s2">&quot;docs_example.bids&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>    <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>    <span class="n">location</span><span class="o">=</span><span class="s2">&quot;s3://pyiceberg&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>    <span class="n">partition_spec</span><span class="o">=</span><span class="n">partition_spec</span><span class="p">,</span>
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>    <span class="n">sort_order</span><span class="o">=</span><span class="n">sort_order</span><span class="p">,</span>
+<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a><span class="p">)</span>
+</code></pre></div>
+<p>To create a table using a pyarrow schema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="p">[</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">pa</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="n">pa</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">int32</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="n">pa</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">bool_</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">)</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">catalog</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">identifier</span><span class="o">=</span><span class="s2">&quot;docs_example.bids&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">)</span>
+</code></pre></div>
+<h2 id="load-a-table">Load a table</h2>
+<h3 id="catalog-table">Catalog table</h3>
+<p>Loading the <code>bids</code> table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">table</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">load_table</span><span class="p">(</span><span class="s2">&quot;docs_example.bids&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Equivalent to:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">table</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">load_table</span><span class="p">((</span><span class="s2">&quot;docs_example&quot;</span><span class="p">,</span> <span class="s2">&quot;bids&quot;</span><span class="p">))</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># The tuple syntax can be used if the namespace or table contains a dot.</span>
+</code></pre></div>
+<p>This returns a <code>Table</code> that represents an Iceberg table that can be queried and altered.</p>
+<h3 id="static-table">Static table</h3>
+<p>To load a table directly from a metadata file (i.e., <strong>without</strong> using a catalog), you can use a <code>StaticTable</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.table</span> <span class="kn">import</span> <span class="n">StaticTable</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">static_table</span> <span class="o">=</span> <span class="n">StaticTable</span><span class="o">.</span><span class="n">from_metadata</span><span class="p">(</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="s2">&quot;s3://warehouse/wh/nyc.db/taxis/metadata/00002-6ea51ce3-62aa-4197-9cf8-43d07c3440ca.metadata.json&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">)</span>
+</code></pre></div>
+<p>The static-table is considered read-only.</p>
+<h2 id="write-support">Write support</h2>
+<p>With PyIceberg 0.6.0 write support is added through Arrow. Let's consider an Arrow Table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_pylist</span><span class="p">(</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="p">[</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Amsterdam&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">52.371807</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="mf">4.896029</span><span class="p">},</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">37.773972</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">122.431297</span><span class="p">},</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Drachten&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">53.11254</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="mf">6.0989</span><span class="p">},</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">48.864716</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="mf">2.349014</span><span class="p">},</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="p">],</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">)</span>
+</code></pre></div>
+<p>Next, create a table based on the schema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.catalog</span> <span class="kn">import</span> <span class="n">load_catalog</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">catalog</span> <span class="o">=</span> <span class="n">load_catalog</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">from</span> <span class="nn">pyiceberg.schema</span> <span class="kn">import</span> <span class="n">Schema</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">from</span> <span class="nn">pyiceberg.types</span> <span class="kn">import</span> <span class="n">NestedField</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">DoubleType</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">tbl</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="s2">&quot;default.cities&quot;</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">)</span>
+</code></pre></div>
+<p>Now write the data to the table:</p>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note inline end">
+<p class="admonition-title">Fast append</p>
+<p>PyIceberg default to the <a href="https://iceberg.apache.org/spec/#snapshots">fast append</a> to minimize the amount of data written. This enables quick writes, reducing the possibility of conflicts. The downside of the fast append is that it creates more metadata than a normal commit. <a href="https://github.com/apache/iceberg-python/issues/270">Compaction is planned</a> and will automatically rewrite all the metadata when a threshold is hit, to maintain performant reads.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># or</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">tbl</span><span class="o">.</span><span class="n">overwrite</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<p>The data is written to the table, and when the table is read using <code>tbl.scan().to_arrow()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pyarrow.Table
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>city: string
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>lat: double
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>long: double
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>----
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>city: [[&quot;Amsterdam&quot;,&quot;San Francisco&quot;,&quot;Drachten&quot;,&quot;Paris&quot;]]
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>lat: [[52.371807,37.773972,53.11254,48.864716]]
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>long: [[4.896029,-122.431297,6.0989,2.349014]]
+</code></pre></div>
+<p>You both can use <code>append(df)</code> or <code>overwrite(df)</code> since there is no data yet. If we want to add more data, we can use <code>.append()</code> again:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_pylist</span><span class="p">(</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="p">[{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Groningen&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">53.21917</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="mf">6.56667</span><span class="p">}],</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<p>When reading the table <code>tbl.scan().to_arrow()</code> you can see that <code>Groningen</code> is now also part of the table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pyarrow.Table
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>city: string
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>lat: double
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>long: double
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>----
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>city: [[&quot;Amsterdam&quot;,&quot;San Francisco&quot;,&quot;Drachten&quot;,&quot;Paris&quot;],[&quot;Groningen&quot;]]
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>lat: [[52.371807,37.773972,53.11254,48.864716],[53.21917]]
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>long: [[4.896029,-122.431297,6.0989,2.349014],[6.56667]]
+</code></pre></div>
+<p>The nested lists indicate the different Arrow buffers, where the first write results into a buffer, and the second append in a separate buffer. This is expected since it will read two parquet files.</p>
+<!-- prettier-ignore-start -->
+
+<div class="admonition example">
+<p class="admonition-title">Under development</p>
+<p>Writing using PyIceberg is still under development. Support for <a href="https://github.com/apache/iceberg-python/issues/268">partial overwrites</a> and writing to <a href="https://github.com/apache/iceberg-python/issues/208">partitioned tables</a> is planned and being worked on.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<h2 id="schema-evolution">Schema evolution</h2>
+<p>PyIceberg supports full schema evolution through the Python API. It takes care of setting the field-IDs and makes sure that only non-breaking changes are done (can be overriden).</p>
+<p>In the examples below, the <code>.update_schema()</code> is called from the table itself.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="n">update</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;some_field&quot;</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">(),</span> <span class="s2">&quot;doc&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You can also initiate a transaction if you want to make more changes than just evolving the schema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="k">with</span> <span class="n">transaction</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update_schema</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>        <span class="n">update</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;some_other_field&quot;</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">(),</span> <span class="s2">&quot;doc&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="c1"># ... Update properties etc</span>
+</code></pre></div>
+<h3 id="union-by-name">Union by Name</h3>
+<p>Using <code>.union_by_name()</code> you can merge another schema into an existing schema without having to worry about field-IDs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.catalog</span> <span class="kn">import</span> <span class="n">load_catalog</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">from</span> <span class="nn">pyiceberg.schema</span> <span class="kn">import</span> <span class="n">Schema</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kn">from</span> <span class="nn">pyiceberg.types</span> <span class="kn">import</span> <span class="n">NestedField</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">,</span> <span class="n">LongType</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">catalog</span> <span class="o">=</span> <span class="n">load_catalog</span><span class="p">()</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">)</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="n">table</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="s2">&quot;default.locations&quot;</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="n">new_schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>    <span class="n">NestedField</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="n">LongType</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="p">)</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>    <span class="n">update</span><span class="o">.</span><span class="n">union_by_name</span><span class="p">(</span><span class="n">new_schema</span><span class="p">)</span>
+</code></pre></div>
+<p>Now the table has the union of the two schemas <code>print(table.schema())</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>table {
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  1: city: optional string
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  2: lat: optional double
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  3: long: optional double
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  4: population: optional long
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>}
+</code></pre></div>
+<h3 id="add-column">Add column</h3>
+<p>Using <code>add_column</code> you can add a column, without having to worry about the field-id:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">update</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;retries&quot;</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">(),</span> <span class="s2">&quot;Number of retries to place the bid&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="c1"># In a struct</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="n">update</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;details.confirmed_by&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="s2">&quot;Name of the exchange&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="rename-column">Rename column</h3>
+<p>Renaming a field in an Iceberg table is simple:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="n">update</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s2">&quot;retries&quot;</span><span class="p">,</span> <span class="s2">&quot;num_retries&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="c1"># This will rename `confirmed_by` to `exchange`</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="n">update</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s2">&quot;properties.confirmed_by&quot;</span><span class="p">,</span> <span class="s2">&quot;exchange&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="move-column">Move column</h3>
+<p>Move a field inside of struct:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">update</span><span class="o">.</span><span class="n">move_first</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">update</span><span class="o">.</span><span class="n">move_after</span><span class="p">(</span><span class="s2">&quot;bid&quot;</span><span class="p">,</span> <span class="s2">&quot;ask&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="c1"># This will move `confirmed_by` before `exchange`</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">update</span><span class="o">.</span><span class="n">move_before</span><span class="p">(</span><span class="s2">&quot;details.created_by&quot;</span><span class="p">,</span> <span class="s2">&quot;details.exchange&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="update-column">Update column</h3>
+<p>Update a fields' type, description or required.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">()</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="c1"># Promote a float to a double</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">update</span><span class="o">.</span><span class="n">update_column</span><span class="p">(</span><span class="s2">&quot;bid&quot;</span><span class="p">,</span> <span class="n">field_type</span><span class="o">=</span><span class="n">DoubleType</span><span class="p">())</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="c1"># Make a field optional</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="n">update</span><span class="o">.</span><span class="n">update_column</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="c1"># Update the documentation</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="n">update</span><span class="o">.</span><span class="n">update_column</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Name of the share on the exchange&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Be careful, some operations are not compatible, but can still be done at your own risk by setting <code>allow_incompatible_changes</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">(</span><span class="n">allow_incompatible_changes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="c1"># Incompatible change, cannot require an optional field</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">update</span><span class="o">.</span><span class="n">update_column</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="delete-column">Delete column</h3>
+<p>Delete a field, careful this is a incompatible change (readers/writers might expect this field):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">update_schema</span><span class="p">(</span><span class="n">allow_incompatible_changes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">update</span><span class="p">:</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="n">update</span><span class="o">.</span><span class="n">delete_column</span><span class="p">(</span><span class="s2">&quot;some_field&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="table-properties">Table properties</h2>
+<p>Set and remove properties through the <code>Transaction</code> API:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="n">transaction</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="n">abc</span><span class="o">=</span><span class="s2">&quot;def&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">properties</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;abc&quot;</span><span class="p">:</span> <span class="s2">&quot;def&quot;</span><span class="p">}</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="k">with</span> <span class="n">table</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>    <span class="n">transaction</span><span class="o">.</span><span class="n">remove_properties</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">properties</span> <span class="o">==</span> <span class="p">{}</span>
+</code></pre></div>
+<p>Or, without context manager:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="n">abc</span><span class="o">=</span><span class="s2">&quot;def&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">commit_transaction</span><span class="p">()</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">properties</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;abc&quot;</span><span class="p">:</span> <span class="s2">&quot;def&quot;</span><span class="p">}</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span><span class="o">.</span><span class="n">remove_properties</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">commit_transaction</span><span class="p">()</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">properties</span> <span class="o">==</span> <span class="p">{}</span>
+</code></pre></div>
+<h2 id="query-the-data">Query the data</h2>
+<p>To query a table, a table scan is needed. A table scan accepts a filter, columns, optionally a limit and a snapshot ID:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">from</span> <span class="nn">pyiceberg.catalog</span> <span class="kn">import</span> <span class="n">load_catalog</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="kn">from</span> <span class="nn">pyiceberg.expressions</span> <span class="kn">import</span> <span class="n">GreaterThanOrEqual</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="n">catalog</span> <span class="o">=</span> <span class="n">load_catalog</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">load_table</span><span class="p">(</span><span class="s2">&quot;nyc.taxis&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="n">scan</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="n">GreaterThanOrEqual</span><span class="p">(</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>    <span class="n">selected_fields</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">),</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="p">)</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="c1"># Or filter using a string predicate</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="n">scan</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="s2">&quot;trip_distance &gt; 10.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="p">)</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">file_path</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">plan_files</span><span class="p">()]</span>
+</code></pre></div>
+<p>The low level API <code>plan_files</code> methods returns a set of tasks that provide the files that might contain matching rows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">[</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="s2">&quot;s3://warehouse/wh/nyc/taxis/data/00003-4-42464649-92dd-41ad-b83b-dea1a2fe4b58-00001.parquet&quot;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">]</span>
+</code></pre></div>
+<p>In this case it is up to the engine itself to filter the file itself. Below, <code>to_arrow()</code> and <code>to_duckdb()</code> that already do this for you.</p>
+<h3 id="apache-arrow">Apache Arrow</h3>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note">
+<p class="admonition-title">Requirements</p>
+<p>This requires <a href="../"><code>pyarrow</code> to be installed</a>.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>Using PyIceberg it is filter out data from a huge table and pull it into a PyArrow table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="n">GreaterThanOrEqual</span><span class="p">(</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>    <span class="n">selected_fields</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">),</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="p">)</span><span class="o">.</span><span class="n">to_arrow</span><span class="p">()</span>
+</code></pre></div>
+<p>This will return a PyArrow table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>pyarrow.Table
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>VendorID: int64
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>tpep_pickup_datetime: timestamp[us, tz=+00:00]
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>tpep_dropoff_datetime: timestamp[us, tz=+00:00]
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>----
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>VendorID: [[2,1,2,1,1,...,2,2,2,2,2],[2,1,1,1,2,...,1,1,2,1,2],...,[2,2,2,2,2,...,2,6,6,2,2],[2,2,2,2,2,...,2,2,2,2,2]]
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>tpep_pickup_datetime: [[2021-04-01 00:28:05.000000,...,2021-04-30 23:44:25.000000]]
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>tpep_dropoff_datetime: [[2021-04-01 00:47:59.000000,...,2021-05-01 00:14:47.000000]]
+</code></pre></div>
+<p>This will only pull in the files that that might contain matching rows.</p>
+<h3 id="pandas">Pandas</h3>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note">
+<p class="admonition-title">Requirements</p>
+<p>This requires <a href="../"><code>pandas</code> to be installed</a>.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>PyIceberg makes it easy to filter out data from a huge table and pull it into a Pandas dataframe locally. This will only fetch the relevant Parquet files for the query and apply the filter. This will reduce IO and therefore improve performance and reduce cost.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="s2">&quot;trip_distance &gt;= 10.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    <span class="n">selected_fields</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">),</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</code></pre></div>
+<p>This will return a Pandas dataframe:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>        VendorID      tpep_pickup_datetime     tpep_dropoff_datetime
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>0              2 2021-04-01 00:28:05+00:00 2021-04-01 00:47:59+00:00
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>1              1 2021-04-01 00:39:01+00:00 2021-04-01 00:57:39+00:00
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>2              2 2021-04-01 00:14:42+00:00 2021-04-01 00:42:59+00:00
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>3              1 2021-04-01 00:17:17+00:00 2021-04-01 00:43:38+00:00
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>4              1 2021-04-01 00:24:04+00:00 2021-04-01 00:56:20+00:00
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>...          ...                       ...                       ...
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>116976         2 2021-04-30 23:56:18+00:00 2021-05-01 00:29:13+00:00
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>116977         2 2021-04-30 23:07:41+00:00 2021-04-30 23:37:18+00:00
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>116978         2 2021-04-30 23:38:28+00:00 2021-05-01 00:12:04+00:00
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>116979         2 2021-04-30 23:33:00+00:00 2021-04-30 23:59:00+00:00
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>116980         2 2021-04-30 23:44:25+00:00 2021-05-01 00:14:47+00:00
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>[116981 rows x 3 columns]
+</code></pre></div>
+<p>It is recommended to use Pandas 2 or later, because it stores the data in an <a href="https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i">Apache Arrow backend</a> which avoids copies of data.</p>
+<h3 id="duckdb">DuckDB</h3>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note">
+<p class="admonition-title">Requirements</p>
+<p>This requires <a href="../">DuckDB to be installed</a>.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>A table scan can also be converted into a in-memory DuckDB table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">con</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="n">GreaterThanOrEqual</span><span class="p">(</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    <span class="n">selected_fields</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">),</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="p">)</span><span class="o">.</span><span class="n">to_duckdb</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;distant_taxi_trips&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Using the cursor that we can run queries on the DuckDB table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>        <span class="s2">&quot;SELECT tpep_dropoff_datetime - tpep_pickup_datetime AS duration FROM distant_taxi_trips LIMIT 4&quot;</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    <span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="p">)</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="p">[</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1194</span><span class="p">),),</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1118</span><span class="p">),),</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1697</span><span class="p">),),</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>    <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1581</span><span class="p">),),</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="ray">Ray</h3>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note">
+<p class="admonition-title">Requirements</p>
+<p>This requires <a href="../">Ray to be installed</a>.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>A table scan can also be converted into a Ray dataset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">ray_dataset</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    <span class="n">row_filter</span><span class="o">=</span><span class="n">GreaterThanOrEqual</span><span class="p">(</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>    <span class="n">selected_fields</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">),</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="p">)</span><span class="o">.</span><span class="n">to_ray</span><span class="p">()</span>
+</code></pre></div>
+<p>This will return a Ray dataset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Dataset(
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    num_blocks=1,
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>    num_rows=1168798,
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    schema={
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>        VendorID: int64,
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>        tpep_pickup_datetime: timestamp[us, tz=UTC],
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>        tpep_dropoff_datetime: timestamp[us, tz=UTC]
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>    }
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>)
+</code></pre></div>
+<p>Using <a href="https://docs.ray.io/en/latest/data/api/dataset.html">Ray Dataset API</a> to interact with the dataset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">ray_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="p">[</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="p">{</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>        <span class="s2">&quot;VendorID&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>        <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>        <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>    <span class="p">},</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>    <span class="p">{</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>        <span class="s2">&quot;VendorID&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>        <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>        <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>    <span class="p">},</span>
+<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="daft">Daft</h3>
+<p>PyIceberg interfaces closely with Daft Dataframes (see also: <a href="https://www.getdaft.io/projects/docs/en/latest/user_guide/integrations/iceberg.html">Daft integration with Iceberg</a>) which provides a full lazily optimized query engine interface on top of PyIceberg tables.</p>
+<!-- prettier-ignore-start -->
+
+<div class="admonition note">
+<p class="admonition-title">Requirements</p>
+<p>This requires <a href="../">Daft to be installed</a>.</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>A table can be read easily into a Daft Dataframe:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_daft</span><span class="p">()</span>  <span class="c1"># equivalent to `daft.read_iceberg(table)`</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">10.0</span><span class="p">)</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;VendorID&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;tpep_dropoff_datetime&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This returns a Daft Dataframe which is lazily materialized. Printing <code>df</code> will display the schema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>╭──────────┬───────────────────────────────┬───────────────────────────────╮
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>│ VendorID ┆ tpep_pickup_datetime          ┆ tpep_dropoff_datetime         │
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>│ ---      ┆ ---                           ┆ ---                           │
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>│ Int64    ┆ Timestamp(Microseconds, None) ┆ Timestamp(Microseconds, None) │
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>╰──────────┴───────────────────────────────┴───────────────────────────────╯
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>(No data to display: Dataframe not materialized)
+</code></pre></div>
+<p>We can execute the Dataframe to preview the first few rows of the query with <code>df.show()</code>.</p>
+<p>This is correctly optimized to take advantage of Iceberg features such as hidden partitioning and file-level statistics for efficient reads.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>╭──────────┬───────────────────────────────┬───────────────────────────────╮
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>│ VendorID ┆ tpep_pickup_datetime          ┆ tpep_dropoff_datetime         │
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>│ ---      ┆ ---                           ┆ ---                           │
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>│ Int64    ┆ Timestamp(Microseconds, None) ┆ Timestamp(Microseconds, None) │
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>╞══════════╪═══════════════════════════════╪═══════════════════════════════╡
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>│ 2        ┆ 2008-12-31T23:23:50.000000    ┆ 2009-01-01T00:34:31.000000    │
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>├╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>│ 2        ┆ 2008-12-31T23:05:03.000000    ┆ 2009-01-01T16:10:18.000000    │
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>╰──────────┴───────────────────────────────┴───────────────────────────────╯
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>(Showing first 2 rows)
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
